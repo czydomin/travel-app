@@ -1,9 +1,52 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Card from "@/components/Card";
+import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ['latin'] })
+const data = [
+  {
+    title: "Mount Fuji",
+    location: "Japan",
+    googleMapsUrl: "https://goo.gl/maps/1DGM5WrWnATgkSNB8",
+    startDate: "12 Jan, 2021",
+    endDate: "24 Jan, 2021",
+    description:
+      "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+    imageUrl: "https://source.unsplash.com/WLxQvbMyfas",
+  },
+  {
+    title: "The Great Wall of China",
+    location: "China",
+    googleMapsUrl: "https://goo.gl/maps/8SZWgJZ7hKf1sxvD8",
+    startDate: "20 Feb, 2021",
+    endDate: "28 Feb, 2021",
+    description:
+      "The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China to protect the Chinese states and empires against the raids and invasions of the various nomadic groups of the Eurasian Steppe.",
+    imageUrl:
+      "https://www.worldhistory.org/img/r/p/500x600/4020.jpg.webp?v=1666427342",
+  },
+  {
+    title: "Eiffel Tower",
+    location: "France",
+    googleMapsUrl: "https://goo.gl/maps/fVd8WpFJgBjKJcHx7",
+    startDate: "15 Mar, 2021",
+    endDate: "20 Mar, 2021",
+    description:
+      "The Eiffel Tower is an iron lattice tower located on the Champ de Mars in Paris, France. It was built in 1889 as the entrance arch to the 1889 World's Fair, it has become both a global cultural icon of France and one of the most recognizable structures in the world.",
+    imageUrl:
+      "https://www.reuters.com/resizer/UeaUp4VxyphLZ4tY3j7jLxiybTs=/1200x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/AHF2FYISNJO55J6N35YJBZ2JYY.jpg",
+  },
+  {
+    title: "The Colosseum",
+    location: "Italy",
+    googleMapsUrl: "https://goo.gl/maps/9zYbqW3qV7QyFcwT7",
+    startDate: "1 Apr, 2021",
+    endDate: "10 Apr, 2021",
+    description:
+      "The Colosseum, also known as the Flavian Amphitheatre, is an oval amphitheatre in the center of the city of Rome, Italy. Built of concrete and stone, it is the largest amphitheatre ever built and is considered one of the greatest works of engineering and architecture.",
+    imageUrl:
+      "https://www.rometoolkit.com/where-to-stay/images/colosseum/colosseum-from-above.jpg",
+  },
+];
 
 export default function Home() {
   return (
@@ -14,110 +57,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        <Header />
+        {data.map((element) => (
+          <Card key={element.title} item={element} />
+        ))}
       </main>
     </>
-  )
+  );
 }
